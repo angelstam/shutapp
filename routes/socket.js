@@ -7,6 +7,10 @@ module.exports = function (socket) {
     name: 'Bob'
   });
 
+  socket.on('send:text', function (text) {
+  	socket.broadcast.emit('newtext', text);
+  });
+
   setInterval(function () {
     socket.emit('send:time', {
       time: (new Date()).toString()

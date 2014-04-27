@@ -28,3 +28,27 @@
   content: "";
   padding: 0;
 }
+
+.chatMessage
+{
+  border: 2px solid silver;
+}
+
+.nickname
+{
+  font-weight: bold;
+  width: 20%;
+  display: inline-block;
+  background-color: silver;
+}
+
+.me .nickname
+{
+  background-color: teal;
+}
+
+.timestamp
+{
+  float: right;
+  font-size: 0.6 em;
+}

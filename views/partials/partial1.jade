@@ -1,2 +1,11 @@
-p This is the partial for view 1.
-p The current time is {{time}}
+h1 Hello {{form.nickname}}
+
+input(type='text', ng-model='form.nickname', name='nickname', placeholder='Nickname')
+input(type='text', ng-model='form.text', name='mytext', placeholder='Message')
+input(type='submit', ng-click="sendText(form)")
+
+div(ng-repeat='message in chatLog')
+	div(class='chatMessage')
+		span(class='nickname') {{message.nickname}}
+		{{message.text}}
+		span(class='timestamp') {{message.timestamp}} 
