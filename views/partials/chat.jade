@@ -1,0 +1,12 @@
+h1 Hello {{form.nickname}}
+
+form(name='form', novalidate, ng-submit="sendText(form)", id="chatInput")
+	input(type='text', ng-model='form.nickname', name='nickname', placeholder='Nickname', ng-pattern='/^[0-9A-z]{3,20}$/', required)
+	input(type='text', ng-model='form.text', name='mytext', placeholder='Message', size='60', required)
+	input(type='submit', value='Send')
+
+div(ng-repeat='message in chatLog')
+	div(class='chatMessage', ng-class='{me: message.nickname == form.nickname}')
+		span(class='nickname') {{message.nickname}}
+		span(class='chatText') {{message.text}}
+		span(class='timestamp') {{message.timestamp}} 

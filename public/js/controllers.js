@@ -8,27 +8,27 @@ angular.module('myApp.controllers', []).
       $scope.name = data.name;
     });
   }).
-  controller('MyCtrl1', function ($scope, socket) {
+  controller('ChatController', function ($scope, socket) {
     $scope.chatLog = [];
+    $scope.form = {nickname: ""};
 
     socket.on('send:time', function (data) {
       $scope.time = data.time;
     });
 
-    $scope.sendText = function(data) {
-      var obj = {timestamp: (new Date()).toString(),
-                nickname: data.nickname,
-                text :    data.text};
+    $scope.sendText = function(form) {
+      if (form.$valid) {
+        var obj = {timestamp: (new Date()).toISOString(),
+                  nickname: form.nickname,
+                  text :    form.text};
 
-      $scope.chatLog.unshift(obj);
-      socket.emit('send:text', obj);
-      $scope.form.text = "";
+        $scope.chatLog.unshift(obj);
+        socket.emit('send:text', obj);
+        $scope.form.text = "";
+      }
     };
 
     socket.on('newtext', function(data) {
       $scope.chatLog.unshift(data);
     });
-  }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
   });

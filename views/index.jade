@@ -2,17 +2,14 @@ extends layout
 
 block body
   div(ng-controller='AppCtrl')
-    h2 Hello {{name}}
     ul.menu
       li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
+        a(href='chatview') Chat
 
-    div(ng-view)
+    div(ng-view, id='content')
 
     div
-      | Angular Socket.io seed app: v
+      | Angular Socket.IO Chat App: v
       span(app-version)
 
   script(src='/socket.io/socket.io.js')
