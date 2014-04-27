@@ -42,9 +42,9 @@
   background-color: silver;
 }
 
-.me .nickname
+.me > .nickname
 {
-  background-color: teal;
+  color: gray;
 }
 
 .timestamp

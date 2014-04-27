@@ -6,7 +6,7 @@ form(ng-submit="sendText(form)")
 	input(type='submit')
 
 div(ng-repeat='message in chatLog')
-	div(class='chatMessage')
+	div(class='chatMessage', ng-class='{me: message.nickname == form.nickname}')
 		span(class='nickname') {{message.nickname}}
 		{{message.text}}
 		span(class='timestamp') {{message.timestamp}} 
