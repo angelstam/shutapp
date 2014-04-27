@@ -1,8 +1,9 @@
 h1 Hello {{form.nickname}}
 
-input(type='text', ng-model='form.nickname', name='nickname', placeholder='Nickname')
-input(type='text', ng-model='form.text', name='mytext', placeholder='Message')
-input(type='submit', ng-click="sendText(form)")
+form(ng-submit="sendText(form)")
+	input(type='text', ng-model='form.nickname', name='nickname', placeholder='Nickname')
+	input(type='text', ng-model='form.text', name='mytext', placeholder='Message')
+	input(type='submit')
 
 div(ng-repeat='message in chatLog')
 	div(class='chatMessage')

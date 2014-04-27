@@ -22,6 +22,7 @@ angular.module('myApp.controllers', []).
 
       $scope.chatLog.unshift(obj);
       socket.emit('send:text', obj);
+      $scope.form.text = "";
     };
 
     socket.on('newtext', function(data) {
